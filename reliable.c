@@ -51,6 +51,7 @@ void receive_callback(packet_t *pkt, size_t pkt_size) {
         } else {
             printf("ACK not for expected seqno: %d\n", pkt->seqno);
         }
+         next_seq_num = (next_seq_num + 1) % (MAX_SEQ_NUM + 1);
     } else {
         // Si el paquete está corrupto, ignorarlo
         printf("Packet corrupted\n");

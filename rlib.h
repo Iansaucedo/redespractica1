@@ -87,18 +87,7 @@ input and output of data: when you write something on an endpoint, this string
 is sent to the other endpoint and printed on the console. Alternatively, the
 runtime can model synthetic traffic that generates fixed size packets as fast
 as possible. You have to use the flag -s to active this mode.
-
-	You can pass certain variables to the program, which are passed to the
-"connection_initialization" function:
-		- window:  Tells you the size of the sliding window (which will
-	be 1 for stop-and-wait). You can ignore the case of window > 1 (sliding
-	window).
-		- timeout: Tells you what your retransmission timer should be, in
-	nanoseconds. If after these many nanoseconds a packet you sent has still not
-	been acknowledged, you should retransmit the packet. You can use the
-	function SET_TIMER to activate a timer. The default timer is 10 ms
-	(10000000 ns).
-
+1024
 	The framework can model frame errors; you can specify the frame corruption
 probability using the -e flag. By default, there is no error corruption
 (although the real-world network that transmits the packets might loss some
@@ -124,15 +113,7 @@ errors.
 There are 3 verbosity levels (1 to 3). When debugging is active, some messages
 are printed regarding the transmission and reception of packets, accepted data
 in the application layer, and errors. Each of these messages is displayed in a
-different colour. You can also print messages from your functions to help
-debugging (use "printf" for that).
-*/
-
-/*
-	Your task is to implement the following four functions:
-connection_initialization, recv_callback, send_callback, timer_callback as well
-to describe the connection state data.  All the changes you need to make should
-be done in file reliable.c.
+different colour. You can also print messages from your funct1024
 
 	Important: You do not have to change anything in rlib.h or rlib.c. Indeed,
 you do not need to understand the major part of the code in those files.
